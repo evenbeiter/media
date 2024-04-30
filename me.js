@@ -59,39 +59,7 @@ const code1=`</tbody>
   </table>
 </div>
 </div>
-<script src="https://www.youtube.com/iframe_api"></script>
-<script>
-var player, stopPlayAt=0, stopPlayTimer;
-function onYouTubeIframeAPIReady() {
-    player = new YT.Player('video-placeholder', {
-        height: '200',
-        width: '100%',
-        videoId: '`+mediaSrc+`',
-        playerVars:{
-            rel:0
-        },
-        events: {
-            onStateChange: onPlayerStateChange
-        }
-    });
-}
 
-function pauseVideo(){
-    player.pauseVideo();
-}
-
-function onPlayerStateChange(event){
-    var time, rate, remainingTime;
-    clearTimeout(stopPlayTimer);
-    if (event.data == YT.PlayerState.PLAYING){
-        time=player.getCurrentTime();
-        if (time+.4<stopPlayAt){
-            rate=player.getPlaybackRate();
-            remainingTime=(stopPlayAt-time)/rate;
-            stopPlayTimer=setTimeout(pauseVideo, remainingTime*1000);
-        }
-    }
-}
 
 document.getElementById('lines').addEventListener('click', function (e) {
   if(e.target.nodeName === 'TD') {
@@ -108,9 +76,13 @@ document.getElementById('lines').addEventListener('click', function (e) {
           let startTime=Number(e.target.parentElement.children[1].textContent);
           let endTime=Number(e.target.parentElement.nextElementSibling.children[1].textContent);
 
-          stopPlayAt=endTime;
-          player.seekTo(startTime);
-          player.playVideo();
+audio.currentTime=startTime;
+audio.play();
+audio.ontimeupdate = function(){
+  if (audio.currentTime > endTime){
+    audio.pause();
+              }  
+            }
       }
   }
 });
