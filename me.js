@@ -14,7 +14,7 @@ const code0=`<!doctype html>
 <body>
 <div id="container" class="my-2 mx-auto align-content-center" style="max-width:500px">
     <div id="top" class="sticky-top">
-   <audio id="ap" controls preload="auto" src="https://raw.githubusercontent.com/evenbeiter/media/main/ME`+ep+`.mp3"></audio>
+   <audio id="ap" controls preload="auto" class="py-3 media-document audio iPhone" src="https://raw.githubusercontent.com/evenbeiter/media/main/ME`+ep+`.mp3"></audio>
     </div>
     <div id="echo" class="mx-2">
         <table class="table">
