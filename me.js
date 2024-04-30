@@ -14,7 +14,7 @@ const code0=`<!doctype html>
 <body>
 <div id="container" class="my-2 mx-auto align-content-center" style="max-width:500px">
     <div id="top" class="sticky-top">
-   <audio id="ap" controls preload="auto" src="https://raw.githubusercontent.com/evenbeiter/media/main/`+ep+`.mp3"></audio>
+   <audio id="ap" controls preload="auto" src="https://raw.githubusercontent.com/evenbeiter/media/main/ME`+ep+`.mp3"></audio>
     </div>
     <div id="echo" class="mx-2">
         <table class="table">
@@ -22,7 +22,7 @@ const code0=`<!doctype html>
 
 var txt='';
 var c=0;
-let lrcSrc='https://evenbeiter.github.io/echo/src/'+ep+'.txt';
+let lrcSrc='https://evenbeiter.github.io/echo/src/ME'+ep+'.txt';
 let response = await fetch(lrcSrc);
 let lrc = await response.text();
 txt=getLrc(lrc);
